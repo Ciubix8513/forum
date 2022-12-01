@@ -1,0 +1,6 @@
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.csproj.AssemblyReference.cache
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.GeneratedMSBuildEditorConfig.editorconfig
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.AssemblyInfoInputs.cache
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.AssemblyInfo.cs
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.csproj.CoreCompileInputs.cache
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/forum.MvcApplicationPartsAssemblyInfo.cache
