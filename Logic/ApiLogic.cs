@@ -27,6 +27,15 @@ namespace Bwasm.Cookies.Logic
             return "Failed";
         }
 
+        public async Task<string> LogoutAsync()
+        {
+            var client = _httpClientFactory.CreateClient("API");
+            var response = await client.PostAsync("Auth/logout", null);
+            if (response.IsSuccessStatusCode)
+                return "Success";
+            return "Failed";
+        }
+
         public async Task<(string Message, UserProfileModel? userProfile)> UserProfileAsync()
         {
             var client = _httpClientFactory.CreateClient("API");

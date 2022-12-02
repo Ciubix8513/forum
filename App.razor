@@ -1,5 +1,27 @@
-﻿<CascadingAuthenticationState>
-<Router AppAssembly="@typeof(App).Assembly">
+﻿@inject ILocalStorageService _localStrageService
+@inject IApiLogic _apiLogic
+@inject AuthenticationStateProvider _authStateProvider ;
+@code
+{
+    //Void async func
+   private async Task OnNavigateAsync(NavigationContext args)
+   {
+        var auth = await _localStrageService.GetItemAsync<string>("isauthenticated");
+        //as used for reference types (non structs) does not throw null reference exception
+        var user = (await (_authStateProvider as CustomAuthProvider)
+.GetAuthenticationStateAsync()).User;
+        //Check if the cookie is empty
+        if(!(!string.IsNullOrEmpty(auth) && !user.Identity.IsAuthenticated))
+            return;
+        var response = await _apiLogic.UserProfileAsync();
+        if(response.Message == "Success")
+        (_authStateProvider as CustomAuthProvider).SetAuthInfo(response.userProfile);
+        else if(response.Message == "Unauthorized")
+            await _localStrageService.RemoveItemAsync("isauthenticated");
+   } 
+}
+<CascadingAuthenticationState>
+<Router AppAss:embly="@typeof(App).Assembly" OnNavigate="@OnNavigateAsync">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />

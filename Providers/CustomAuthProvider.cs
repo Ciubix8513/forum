@@ -11,7 +11,11 @@ namespace Bwasm.Cookies.Provider
         {
             return new AuthenticationState(claimsPrincipal);
         }
-
+        public void ClearAuthInfo()
+        {
+            ClaimsPrincipal claimsPrincipal = new(new ClaimsIdentity());
+            NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+        }
         public void SetAuthInfo(UserProfileModel userPofile)
         {
             var identity = new ClaimsIdentity(new[]{
@@ -22,6 +26,7 @@ namespace Bwasm.Cookies.Provider
                 new Claim("PFP",userPofile.PFP)
             },"AuthCookie");
             claimsPrincipal = new(identity);
+            // identity.`
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
     }
