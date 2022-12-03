@@ -19,7 +19,7 @@ builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthProvider>();
 builder.Services.AddScoped<CookieHandler>();
 
 builder.Services.AddHttpClient("API", options =>{
-    options.BaseAddress = new Uri("https://localhost:7244");
+    options.BaseAddress = new Uri("https://localhost:5169");
 }).AddHttpMessageHandler<CookieHandler>();
 builder.Services.AddScoped<IApiLogic,ApiLogic>();
 

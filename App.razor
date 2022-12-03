@@ -21,7 +21,7 @@
    } 
 }
 <CascadingAuthenticationState>
-<Router AppAss:embly="@typeof(App).Assembly" OnNavigate="@OnNavigateAsync">
+<Router AppAssembly="@typeof(App).Assembly" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
