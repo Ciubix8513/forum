@@ -14,13 +14,19 @@
             _navigationManager.NavigateTo("/",true);
         }
     }
+    private void login(){_navigationManager.NavigateTo("/login",false);}
+    
 }
 <AuthorizeView>
     <Authorized>
-        <a href="">@context.User.Identity.GetClaimByName(CustomClaimsTypes.Username)</a>
-        <button type="button" @onclick="Logout" class = "nav-link btn btn-link">Log out</button>
+        <container class="container-fluid">
+            <div>
+                <a href="">@context.User.Identity.GetClaimByName(CustomClaimsTypes.Username)</a>
+                <button type="button" @onclick="Logout" class = "nav-link btn btn-light">Log out</button>
+            </div>
+        </container>
     </Authorized>
     <NotAuthorized>
-        <a href="/login">Log in</a>
+        <btn class="btn-light nav-link btn" @onclick="login">Log in</btn>
     </NotAuthorized>
 </AuthorizeView>

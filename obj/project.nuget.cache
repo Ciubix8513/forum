@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IDCKlbCHRgWHUV+ZWE1VkIWZ3SocGpQevCr6SVKX6v75f5RXTrqGR1KXgnSEmjI/udKjc4X/Q9VsYVJPgxvM1A==",
+  "dgSpecHash": "n1cPrFtwqZMsiimzWT+2r9deOMBqanAD6MOe01IqAemODenKb+a9UX74MHs7Wr00nW5GBkmMU0aCp4mlAICiFg==",
   "success": true,
-  "projectFilePath": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
+  "projectFilePath": "/home/luna/Projects/forum/forum/forum.csproj",
   "expectedPackageFiles": [
     "/home/luna/.nuget/packages/blazored.localstorage/4.3.0/blazored.localstorage.4.3.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.authorization/7.0.0/microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",
@@ -15,6 +15,7 @@
     "/home/luna/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/7.0.0/microsoft.aspnetcore.components.webassembly.authentication.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/7.0.0/microsoft.aspnetcore.components.webassembly.devserver.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.metadata/7.0.0/microsoft.aspnetcore.metadata.7.0.0.nupkg.sha512",
+    "/home/luna/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.extensions.configuration.binder/7.0.0/microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
@@ -32,6 +33,8 @@
     "/home/luna/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.jsinterop/7.0.0/microsoft.jsinterop.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.jsinterop.webassembly/7.0.0/microsoft.jsinterop.webassembly.7.0.0.nupkg.sha512",
+    "/home/luna/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "/home/luna/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/luna/.nuget/packages/system.io.pipelines/7.0.0/system.io.pipelines.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",

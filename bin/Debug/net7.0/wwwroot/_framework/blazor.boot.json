@@ -16,6 +16,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-wa9dKaCIgfTZkr2Ca8QiW3bsjHFZw3Fn8X114nXO25o=",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": "sha256-nPvEoLopX88anBlJcTsVx5N+4nsI3XvM6q2ReYc0194=",
       "Microsoft.AspNetCore.Metadata.dll": "sha256-mFDOnLuhJraetVG1skdrXwUnBj7sNxv2HNiaJHjPGCw=",
+      "Microsoft.AspNetCore.WebUtilities.dll": "sha256-D5akJeBd7NNITuzAXxlX7zl2jfsc4uTKyeEKwwNhqoo=",
       "Microsoft.Extensions.Configuration.dll": "sha256-PqQvp77oZ4+uuy2ElXk8AU9I6RfZSf18UGTrd4rulOo=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-CnS3b9EMFQmETBUVEgtcron4DBsfFdcVt3zfCP6Uflg=",
       "Microsoft.Extensions.Configuration.Binder.dll": "sha256-3rTnsLgQSM1ims+xsGWGxVCZ1UNwRSmni\/CeDpwh434=",
@@ -33,6 +34,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-q4ruoDSCjV\/QJY9ZkzV6uxvEvZUVrDbyUjU3SSh5SlE=",
       "Microsoft.JSInterop.dll": "sha256-q17WovokqNgFuXZO8JzEh+dShJEutXJL12V9hSr+Q6s=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-LS1TECEw0D6FskWRcaDt51suj930x2zRQySVGe2mJ3o=",
+      "Microsoft.Net.Http.Headers.dll": "sha256-P66ftDrXwc6ayND8uYzIk0CPQy1GjNZAPHx9RMhi3V4=",
       "System.IO.Pipelines.dll": "sha256-P\/MqD0fCBd5bgTM16JC1QC\/Zz7s+CwViyzmDFkBG4\/c=",
       "Microsoft.CSharp.dll": "sha256-H2iVC6N2FKaujhjo5ymgRU5qPnElYWEM2SWi7kARbdI=",
       "Microsoft.VisualBasic.Core.dll": "sha256-6A8aISqpO8yZDf6t9XNQk3hY5NXcyecT6yZbhY8yYiw=",
@@ -202,13 +204,13 @@
       "mscorlib.dll": "sha256-pO\/W4w\/X+UjVMUMaxE5tYTQ0tILP+hmMu0zi0MSVBLc=",
       "netstandard.dll": "sha256-kj5cBXzwPYC+HD+P8+6VybY34JtEzjXjMIHXEI3hIiM=",
       "System.Private.CoreLib.dll": "sha256-Awk1lCiFfH7r9AAZfBtGqS8rhv6UJ5lUu3yF6HDH3tQ=",
-      "forum.dll": "sha256-FajFvAj0OSr7l5BFa1Yrfm8CrekdaTuDGEbPXq3jPQ4="
+      "forum.dll": "sha256-2ymTFrnp1eGwtB\/wmnAwh1bpMw7eyB\/JmEknfJjlA7s="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "forum.pdb": "sha256-TQ8nDJpEZw4mKItlho7HjL8WkmWV+5iZnKKHCqFWIh0="
+      "forum.pdb": "sha256-2sdzmtQM5ZKrsJ5E1piQIfmrXl6iYZlRVgTfNJC\/ATM="
     },
     "runtime": {
       "dotnet.7.0.0.p5rh273jq8.js": "sha256-2jNLve8W0sST0LAebgAc1IwSnGhkbjOKO8QPWWiJssI=",

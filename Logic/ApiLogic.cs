@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using Api.Dtos;
 using Bwasm.Cookies.Models;
 
 namespace Bwasm.Cookies.Logic
@@ -12,6 +13,17 @@ namespace Bwasm.Cookies.Logic
         {
             _httpClientFactory = httpClientFactory;
         }
+
+        public async Task<List<PostsGetDto>> GetPosts(int parent)
+        {  
+            var client = _httpClientFactory.CreateClient("API");
+            string payload = $"?Id={parent}";
+            var response = await client.GetAsync("/Post/GetPosts" + payload);
+            if(!response.IsSuccessStatusCode)
+                return null;
+            return (List<PostsGetDto>)await response.Content.ReadFromJsonAsync(typeof(List<PostsGetDto>)); 
+        }
+
         //Make Login api call on route /Auth/login with content login
         public async Task<string> LoginAsync(LoginModel login)
         {
