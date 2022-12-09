@@ -1,4 +1,90 @@
 @page "/SignUp"
 @inject IApiLogic _apiLogic
+@inject AuthenticationStateProvider _authStateProvider
 @inject NavigationManager _navigationManager
+@inject ILocalStorageService _localStorageService;
+@using Api.Dtos;
 
+<div class ="row">
+    <div class="col-md-6 offset-md-3" style="z-index:2">
+        <legend>User Login</legend>
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <textarea @bind="dto.Username" type="text"class ="form-control" rows="1" id="txtUsername"maxLength = "15" style="resize:none"/>
+            <label class="alert @usernameClas" >Username already taken</label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" >Email</label>
+            <textarea rows="1" @bind="dto.Email" type="text"class ="form-control" id="txtUsername"maxLength = "255"style="resize:none"/>
+            <label class="alert @emailClass">Invalid email</label>
+        </div>
+            <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input @bind="password0" type="password"class ="form-control" id="txtPassword"/>
+            <label class="alert @passwordClass">@passwordText</label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Repeat password</label>
+            <input @bind="password1" type="password"class ="form-control" id="txtPassword"/>
+        </div>
+        <div class="mb-3">
+
+            <label class="form-label">Reason</label>
+            <textarea @bind="dto.Reason" type="text"class ="form-control" id="txtUsername"maxLength = "2048" style="resize:none"/>
+            <label class="alert @reasonClass">Reason must not be empty</label>
+        </div>
+        <a href="/privacy">By clicking sign up you agree to our privacy policy</a><br>
+        
+        <button type="button" @onclick="SignUpFunc" class = "btn btn-primary">Sign up</button>
+        <label>@response</label>
+    </div>
+@* <Popup @ref="popup" /> *@
+</div>
+
+
+@code{
+    
+    private FormAddDto dto = new();
+    private string password0;
+    private string password1;
+
+    private string usernameClas = "d-none";
+    private string emailClass = "d-none";
+    private string passwordClass = "d-none";
+    private string passwordText= "d-none";
+    private string reasonClass = "d-none";
+    private string response = "";
+    void ShowPassword(string text, string Class)
+    {
+        passwordClass = Class;
+        passwordText = text;
+    }
+    async void SignUpFunc()
+    {
+        if(!EmailValidator.Validate(dto.Email))
+        {
+            emailClass = "d-block";
+            return;
+        }
+        emailClass = "d-none";
+        if(password0 != password1)
+        {
+            ShowPassword("Passwords don't match","d-block");
+            return;
+        }
+        if(string.IsNullOrEmpty(password0))
+        {
+            ShowPassword("Password must not be empty","d-block");
+            return;
+        }
+        passwordClass = "d-none";
+        if(string.IsNullOrEmpty( dto.Reason))
+        {
+            reasonClass = "d-block";
+            return;
+        }
+        reasonClass = "d-none";
+        dto.Password = password0;
+        response = await _apiLogic.AddForm(dto);
+    }
+}

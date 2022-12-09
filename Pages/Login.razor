@@ -9,7 +9,7 @@
         <legend>User Login</legend>
         <div class="mb-3">
             <label for="txtUsername" class="form-label">Username</label>
-            <input @bind="loginModel.Username" type="text"class ="form-control" id="txtUsername"/>
+            <textarea style="resize:none" rows ="1" maxLength="15" @bind="loginModel.Username" type="text"class ="form-control" id="txtUsername"/>
         </div>
 
         <div class="mb-3">
@@ -17,12 +17,14 @@
             <input @bind="loginModel.Password" type="password"class ="form-control" id="txtPassword"/>
         </div>
         <button type ="button" @onclick="UserLogin" class="btn btn-primary">Login</button>
+        <button type="button" @onclick="SignUp" class = "btn btn-primary">Sign up</button>
     </div>
 </div>
 
 @code 
 {
     private LoginModel loginModel = new();
+    private void SignUp() => _navigationManager.NavigateTo("SignUp",false);
     private async Task UserLogin()
     {
         var message = await _apiLogic.LoginAsync(loginModel);

@@ -1694,3 +1694,11 @@
 /home/luna/Projects/forum/forum/bin/Debug/net7.0/Microsoft.Net.Http.Headers.dll
 /home/luna/Projects/forum/forum/obj/Debug/net7.0/build-gz/i9e+YLei.gz
 /home/luna/Projects/forum/forum/obj/Debug/net7.0/build-gz/91lmkwJC.gz
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/wwwroot/_framework/Microsoft.AspNetCore.WebUtilities.dll
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Net.Http.Headers.dll
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Net.Http.Headers.dll.gz
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/wwwroot/_framework/Microsoft.AspNetCore.WebUtilities.dll.gz
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/Microsoft.AspNetCore.WebUtilities.dll
+/home/luna/Projects/School_Stuff/forum/forum/bin/Debug/net7.0/Microsoft.Net.Http.Headers.dll
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/build-gz/i9e+YLei.gz
+/home/luna/Projects/School_Stuff/forum/forum/obj/Debug/net7.0/build-gz/91lmkwJC.gz

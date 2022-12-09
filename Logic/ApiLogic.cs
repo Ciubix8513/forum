@@ -15,13 +15,13 @@ namespace Bwasm.Cookies.Logic
         }
 
         public async Task<List<PostsGetDto>> GetPosts(int parent)
-        {  
+        {
             var client = _httpClientFactory.CreateClient("API");
             string payload = $"?Id={parent}";
             var response = await client.GetAsync("/Post/GetPosts" + payload);
-            if(!response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
                 return null;
-            return (List<PostsGetDto>)await response.Content.ReadFromJsonAsync(typeof(List<PostsGetDto>)); 
+            return (List<PostsGetDto>)await response.Content.ReadFromJsonAsync(typeof(List<PostsGetDto>));
         }
 
         //Make Login api call on route /Auth/login with content login
@@ -57,6 +57,15 @@ namespace Bwasm.Cookies.Logic
             if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 return ("Unauthorized", null);
             return ("Failed", null);
+        }
+
+        public async Task<string> AddForm(FormAddDto dto)
+        { 
+            var client = _httpClientFactory.CreateClient("API");
+            string payload = JsonSerializer.Serialize(dto);
+            var content =  new StringContent(payload,Encoding.UTF8,"application/json");
+            var response = await client.PostAsync("Reg/AddForm",content);
+            return (string)await response.Content.ReadFromJsonAsync(typeof(string));
         }
     }
 }

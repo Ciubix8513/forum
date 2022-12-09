@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n1cPrFtwqZMsiimzWT+2r9deOMBqanAD6MOe01IqAemODenKb+a9UX74MHs7Wr00nW5GBkmMU0aCp4mlAICiFg==",
+  "dgSpecHash": "mq/Y9DOSkwyQl1fuM7R3GHd+7zdbXwvs3kdjHg0Lyn0GJmGrlTIwPxquRe/d1eDJ26hK9VODSkEY4mX1Ev5+4w==",
   "success": true,
-  "projectFilePath": "/home/luna/Projects/forum/forum/forum.csproj",
+  "projectFilePath": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
   "expectedPackageFiles": [
     "/home/luna/.nuget/packages/blazored.localstorage/4.3.0/blazored.localstorage.4.3.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.authorization/7.0.0/microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",

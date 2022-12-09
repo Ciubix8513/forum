@@ -9,41 +9,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = forum
 build_property.RootNamespace = forum
-build_property.ProjectDir = /home/luna/Projects/forum/forum/
+build_property.ProjectDir = /home/luna/Projects/School_Stuff/forum/forum/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/luna/Projects/forum/forum
+build_property.MSBuildProjectDirectory = /home/luna/Projects/School_Stuff/forum/forum
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/luna/Projects/forum/forum/App.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/Pages/Index.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/Pages/Login.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/Pages/SignUp.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Pages/Privacy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/luna/Projects/School_Stuff/forum/forum/Pages/SignUp.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2lnblVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/Shared/LoginDisplay.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/_Imports.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Shared/Popup.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1BvcHVwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/luna/Projects/School_Stuff/forum/forum/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luna/Projects/forum/forum/Shared/MainLayout.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qda7cn4zdv
 
-[/home/luna/Projects/forum/forum/Shared/NavMenu.razor]
+[/home/luna/Projects/School_Stuff/forum/forum/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-vf73u74x46

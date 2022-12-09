@@ -9,5 +9,6 @@ namespace Bwasm.Cookies.Logic
         Task<string> LogoutAsync();
         Task<(string Message,UserProfileModel? userProfile)> UserProfileAsync();
         Task<List<PostsGetDto>> GetPosts(int parent);
+        Task<string> AddForm(FormAddDto dto); 
     }
 }
