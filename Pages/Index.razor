@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.WebUtilities;
 
 @code{
+    [CascadingParameter] public IModalService Modal {get; set;}
     public int postId  = 0;
     protected override void OnInitialized()
     {
@@ -12,9 +13,17 @@
         postId = 1;
         //Got the post id
     }
+
+    private void OnClick()
+    {
+        var param = new ModalParameters();
+        param.Add("Contents","test");
+
+        Modal.Show<OkModal>("Test",param);
+    }
 }
 <PageTitle>Index</PageTitle>
-
+@* <button @onclick="OnClick">Test</button> *@
 
 
 <p role="status">@postId</p>

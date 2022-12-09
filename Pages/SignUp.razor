@@ -11,17 +11,17 @@
         <div class="mb-3">
             <label class="form-label">Username</label>
             <textarea @bind="dto.Username" type="text"class ="form-control" rows="1" id="txtUsername"maxLength = "15" style="resize:none"/>
-            <label class="alert @usernameClas" >Username already taken</label>
+            <label class="alert text-danger @usernameClas red" >Username already taken</label>
         </div>
         <div class="mb-3">
             <label class="form-label" >Email</label>
             <textarea rows="1" @bind="dto.Email" type="text"class ="form-control" id="txtUsername"maxLength = "255"style="resize:none"/>
-            <label class="alert @emailClass">Invalid email</label>
+            <label class="alert text-danger @emailClass ">Invalid email</label>
         </div>
             <div class="mb-3">
             <label class="form-label">Password</label>
             <input @bind="password0" type="password"class ="form-control" id="txtPassword"/>
-            <label class="alert @passwordClass">@passwordText</label>
+            <label class="alert text-danger @passwordClass">@passwordText</label>
         </div>
         <div class="mb-3">
             <label class="form-label">Repeat password</label>
@@ -31,18 +31,19 @@
 
             <label class="form-label">Reason</label>
             <textarea @bind="dto.Reason" type="text"class ="form-control" id="txtUsername"maxLength = "2048" style="resize:none"/>
-            <label class="alert @reasonClass">Reason must not be empty</label>
+            <label class="alert text-danger @reasonClass">Reason must not be empty</label>
         </div>
         <a href="/privacy">By clicking sign up you agree to our privacy policy</a><br>
         
         <button type="button" @onclick="SignUpFunc" class = "btn btn-primary">Sign up</button>
-        <label>@response</label>
+        @* <label>@response</label> *@
     </div>
 @* <Popup @ref="popup" /> *@
 </div>
 
 
 @code{
+    [CascadingParameter] IModalService Modal {get; set;}
     
     private FormAddDto dto = new();
     private string password0;
@@ -86,5 +87,15 @@
         reasonClass = "d-none";
         dto.Password = password0;
         response = await _apiLogic.AddForm(dto);
+        var param = new ModalParameters();
+        var title = "Success";
+        bool good;
+        if(good = response != "Success")
+            title = "Error";
+        param.Add("Contents",response + ((!good) ? "!\nPlease wait for a moderator to aprove your application" :""));
+        var dialog = Modal.Show<OkModal>(title,param);
+        var result = await dialog.Result;
+        if(!good)
+            _navigationManager.NavigateTo("/",true);
     }
 }

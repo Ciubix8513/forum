@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj": {}
+    "/home/luna/Projects/forum/forum/forum.csproj": {}
   },
   "projects": {
-    "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj": {
+    "/home/luna/Projects/forum/forum/forum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
+        "projectUniqueName": "/home/luna/Projects/forum/forum/forum.csproj",
         "projectName": "forum",
-        "projectPath": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
+        "projectPath": "/home/luna/Projects/forum/forum/forum.csproj",
         "packagesPath": "/home/luna/.nuget/packages/",
-        "outputPath": "/home/luna/Projects/School_Stuff/forum/forum/obj/",
+        "outputPath": "/home/luna/Projects/forum/forum/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/luna/.nuget/NuGet/NuGet.Config"
@@ -41,6 +41,10 @@
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "Blazored.Modal": {
+              "target": "Package",
+              "version": "[7.1.0, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",

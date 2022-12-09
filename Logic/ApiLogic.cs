@@ -65,7 +65,7 @@ namespace Bwasm.Cookies.Logic
             string payload = JsonSerializer.Serialize(dto);
             var content =  new StringContent(payload,Encoding.UTF8,"application/json");
             var response = await client.PostAsync("Reg/AddForm",content);
-            return (string)await response.Content.ReadFromJsonAsync(typeof(string));
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
