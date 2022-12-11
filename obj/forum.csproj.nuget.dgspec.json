@@ -38,6 +38,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "BlazorStrap": {
+              "target": "Package",
+              "version": "[5.0.106, )"
+            },
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[4.3.0, )"

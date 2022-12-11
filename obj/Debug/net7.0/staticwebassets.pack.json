@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/forum.styles.css"
     },
     {
+      "Id": "/home/luna/Projects/forum/forum/wwwroot/Resources/EmptyPFP.png",
+      "PackagePath": "staticwebassets/Resources/EmptyPFP.png"
+    },
+    {
       "Id": "/home/luna/Projects/forum/forum/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },

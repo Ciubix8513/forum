@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "BlazorComponentUtilities/1.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        }
+      },
       "Blazored.LocalStorage/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -33,6 +42,25 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Blazored.Modal.props": {}
+        }
+      },
+      "BlazorStrap/5.0.106": {
+        "type": "package",
+        "dependencies": {
+          "BlazorComponentUtilities": "1.7.1",
+          "Microsoft.AspNetCore.Components.Web": "6.0.7"
+        },
+        "compile": {
+          "lib/net6.0/BlazorStrap.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/BlazorStrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorStrap.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorStrap.props": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/7.0.0": {
@@ -616,6 +644,15 @@
       }
     },
     "net7.0/browser-wasm": {
+      "BlazorComponentUtilities/1.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        }
+      },
       "Blazored.LocalStorage/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -647,6 +684,25 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Blazored.Modal.props": {}
+        }
+      },
+      "BlazorStrap/5.0.106": {
+        "type": "package",
+        "dependencies": {
+          "BlazorComponentUtilities": "1.7.1",
+          "Microsoft.AspNetCore.Components.Web": "6.0.7"
+        },
+        "compile": {
+          "lib/net6.0/BlazorStrap.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/BlazorStrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorStrap.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorStrap.props": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/7.0.0": {
@@ -1225,6 +1281,20 @@
     }
   },
   "libraries": {
+    "BlazorComponentUtilities/1.7.1": {
+      "sha512": "m73xpJYtSd7tlOowMslyAvWDipW9bOTWJzGnCSQJK9tm4fz6xXQZbAbTDydmV9bxhTrzmJMMRGsAEnSVZjWVjg==",
+      "type": "package",
+      "path": "blazorcomponentutilities/1.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "blazor-glove-256.jpg",
+        "blazorcomponentutilities.1.7.1.nupkg.sha512",
+        "blazorcomponentutilities.nuspec",
+        "lib/netstandard2.0/BlazorComponentUtilities.dll"
+      ]
+    },
     "Blazored.LocalStorage/4.3.0": {
       "sha512": "CfHp9SWN45cM/TM8uw4pELQBfCRtMssCMSOjsEXVWibeYBn36TLpzw+J1vsC2Su2BEQ3Et19A5+GqK1S3kHbTQ==",
       "type": "package",
@@ -1256,6 +1326,27 @@
         "lib/net6.0/Blazored.Modal.dll",
         "staticwebassets/Blazored.Modal.bundle.scp.css",
         "staticwebassets/BlazoredModal.razor.js"
+      ]
+    },
+    "BlazorStrap/5.0.106": {
+      "sha512": "lM//XdITeSSrCkKOVoaxZmSvEWKZmnkp/qj6/U+r3K+ypvKrhC/TI8PvtphtIoOXUNcHTmb+tVVWF+lhrCB7/A==",
+      "type": "package",
+      "path": "blazorstrap/5.0.106",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazorstrap.5.0.106.nupkg.sha512",
+        "blazorstrap.nuspec",
+        "build/BlazorStrap.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorStrap.props",
+        "buildTransitive/BlazorStrap.props",
+        "lib/net5.0/BlazorStrap.dll",
+        "lib/net6.0/BlazorStrap.dll",
+        "staticwebassets/BlazorStrap.bundle.scp.css",
+        "staticwebassets/blazorstrap.js",
+        "staticwebassets/blazorstrap.min.js",
+        "staticwebassets/popper.min.js"
       ]
     },
     "Microsoft.AspNetCore.Authorization/7.0.0": {
@@ -2222,6 +2313,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BlazorStrap >= 5.0.106",
       "Blazored.LocalStorage >= 4.3.0",
       "Blazored.Modal >= 7.1.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 7.0.0",
@@ -2268,6 +2360,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "BlazorStrap": {
+            "target": "Package",
+            "version": "[5.0.106, )"
+          },
           "Blazored.LocalStorage": {
             "target": "Package",
             "version": "[4.3.0, )"

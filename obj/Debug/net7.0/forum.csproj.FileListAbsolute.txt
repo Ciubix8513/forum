@@ -1706,3 +1706,11 @@
 /home/luna/Projects/forum/forum/bin/Debug/net7.0/wwwroot/_framework/Blazored.Modal.dll.gz
 /home/luna/Projects/forum/forum/bin/Debug/net7.0/Blazored.Modal.dll
 /home/luna/Projects/forum/forum/obj/Debug/net7.0/build-gz/wv6NgtyG.gz
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/wwwroot/_framework/BlazorComponentUtilities.dll
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/wwwroot/_framework/BlazorStrap.dll
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/wwwroot/_framework/BlazorStrap.dll.gz
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/wwwroot/_framework/BlazorComponentUtilities.dll.gz
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/BlazorComponentUtilities.dll
+/home/luna/Projects/forum/forum/bin/Debug/net7.0/BlazorStrap.dll
+/home/luna/Projects/forum/forum/obj/Debug/net7.0/build-gz/D21F0A1c.gz
+/home/luna/Projects/forum/forum/obj/Debug/net7.0/build-gz/4qttQ90x.gz

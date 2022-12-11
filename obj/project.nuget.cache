@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sx60WCbeOr8fBV+LMqJg3ITDIW/5Rfk2OivOQmx6IxwqbEBx64LLqfXXtMoYIxYUgkRr39YJIFJnytWnJ4923w==",
+  "dgSpecHash": "mgXQ4NrwxPZLmdp8Q1lrnBUHHTKUmi/5TsVuKIZ7VxppxkHHG0otYpVT7Ff+naprsuweMdkFqUVxy3D+xFd2Mw==",
   "success": true,
   "projectFilePath": "/home/luna/Projects/forum/forum/forum.csproj",
   "expectedPackageFiles": [
+    "/home/luna/.nuget/packages/blazorcomponentutilities/1.7.1/blazorcomponentutilities.1.7.1.nupkg.sha512",
     "/home/luna/.nuget/packages/blazored.localstorage/4.3.0/blazored.localstorage.4.3.0.nupkg.sha512",
     "/home/luna/.nuget/packages/blazored.modal/7.1.0/blazored.modal.7.1.0.nupkg.sha512",
+    "/home/luna/.nuget/packages/blazorstrap/5.0.106/blazorstrap.5.0.106.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.authorization/7.0.0/microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.components/7.0.0/microsoft.aspnetcore.components.7.0.0.nupkg.sha512",
     "/home/luna/.nuget/packages/microsoft.aspnetcore.components.analyzers/7.0.0/microsoft.aspnetcore.components.analyzers.7.0.0.nupkg.sha512",

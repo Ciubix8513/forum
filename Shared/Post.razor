@@ -1,0 +1,31 @@
+@code{
+    public string date {get; set;} = "6.9.6969";
+    public MarkupString content {get; set;} = (MarkupString)"<h1>This is a test post</h1> <br> it's just some nonsense to fill the div for testing";
+    public string username {get; set;} = "luna_the_creator";
+    public string postCount {get; set;} = "∞";
+    public string pfpSource {get; set;} = "Resources/EmptyPFP.png";
+}
+
+<div class="d-flex align-items-stretch">
+    <div class="p-2  bg-dark text-wrap" style="width:60rem;">
+        @content
+        <div class="small mx-1 mt-4 d-flex">
+            <div>
+                reply 
+            </div>
+            <div class ="mx-3">
+                report
+            </div>
+        </div>
+    </div> 
+    <div class="bg-dark">
+    <img src="@pfpSource" width="64" height="64"/>
+    </div>
+    <div class="p-2 bg-dark">
+        @username 
+        <br>
+        @postCount posts
+        <div class="mx-5 small bottom-100">@date</div>
+    </div>    
+</div>
+

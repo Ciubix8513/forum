@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1BvcHVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/luna/Projects/forum/forum/Shared/Post.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1Bvc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/luna/Projects/forum/forum/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
