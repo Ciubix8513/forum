@@ -52,6 +52,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1Bvc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/luna/Projects/forum/forum/Shared/ReportModal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlcG9ydE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/luna/Projects/forum/forum/Shared/TopPost.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1RvcFBvc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/luna/Projects/forum/forum/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

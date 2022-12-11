@@ -38,6 +38,16 @@ a, .btn-link {
     color: red;
 }
 
+.custom-modal{
+    background-color: #222229;
+    width: 30%;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    color : #d7e0e9;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;

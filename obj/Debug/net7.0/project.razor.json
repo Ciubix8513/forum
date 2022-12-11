@@ -362,39 +362,6 @@
         }
       },
       {
-        "HashCode": -470354695,
-        "Kind": "Components.Component",
-        "Name": "forum.Shared.Post",
-        "AssemblyName": "forum",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Post"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "forum.Shared.Post"
-        }
-      },
-      {
-        "HashCode": -352491603,
-        "Kind": "Components.Component",
-        "Name": "forum.Shared.Post",
-        "AssemblyName": "forum",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "forum.Shared.Post"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "forum.Shared.Post",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 891295596,
         "Kind": "Components.Component",
         "Name": "forum.Shared.MainLayout",
@@ -520,6 +487,105 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "forum.Shared.NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2143979033,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.TopPost",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TopPost"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.TopPost"
+        }
+      },
+      {
+        "HashCode": -1725735267,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.TopPost",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "forum.Shared.TopPost"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.TopPost",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -470354695,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.Post",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Post"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.Post"
+        }
+      },
+      {
+        "HashCode": -352491603,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.Post",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "forum.Shared.Post"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.Post",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 612692713,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.ReportModal",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ReportModal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.ReportModal"
+        }
+      },
+      {
+        "HashCode": 693953666,
+        "Kind": "Components.Component",
+        "Name": "forum.Shared.ReportModal",
+        "AssemblyName": "forum",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "forum.Shared.ReportModal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "forum.Shared.ReportModal",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -55036,6 +55102,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "/home/luna/Projects/forum/forum/Shared/ReportModal.razor",
+      "TargetPath": "Shared\\ReportModal.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "/home/luna/Projects/forum/forum/Shared/NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
       "FileKind": "component"
@@ -55063,6 +55134,11 @@
     {
       "FilePath": "/home/luna/Projects/forum/forum/App.razor",
       "TargetPath": "App.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/home/luna/Projects/forum/forum/Shared/TopPost.razor",
+      "TargetPath": "Shared\\TopPost.razor",
       "FileKind": "component"
     },
     {

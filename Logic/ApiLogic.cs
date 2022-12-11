@@ -67,5 +67,11 @@ namespace Bwasm.Cookies.Logic
             var response = await client.PostAsync("Reg/AddForm",content);
             return await response.Content.ReadAsStringAsync();
         }
+
+        public async Task RepPost(int id, string reason)
+        {
+            var client = _httpClientFactory.CreateClient("API");
+            await client.PostAsync( $"Rep/RepPost?Id{id}&Reason={reason}",null);
+        }
     }
 }
