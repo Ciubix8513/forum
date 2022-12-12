@@ -491,7 +491,7 @@
         }
       },
       {
-        "HashCode": 2143979033,
+        "HashCode": -832973433,
         "Kind": "Components.Component",
         "Name": "forum.Shared.TopPost",
         "AssemblyName": "forum",
@@ -501,13 +501,23 @@
             "TagName": "TopPost"
           }
         ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Class",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Class"
+            }
+          }
+        ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "forum.Shared.TopPost"
         }
       },
       {
-        "HashCode": -1725735267,
+        "HashCode": -1435562947,
         "Kind": "Components.Component",
         "Name": "forum.Shared.TopPost",
         "AssemblyName": "forum",
@@ -515,6 +525,16 @@
         "TagMatchingRules": [
           {
             "TagName": "forum.Shared.TopPost"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Class",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Class"
+            }
           }
         ],
         "Metadata": {

@@ -1,17 +1,34 @@
 @inject NavigationManager _navigationManager;
 @inject IApiLogic _apiLogic;
+@using Api.Dtos;
+@using System.ComponentModel.DataAnnotations;
 
 @code{
     public string date {get; set;} = "6.9.6969";
-    public MarkupString content {get; set;} = (MarkupString)"This is a test post it's just some nonsense to fill the div for testing";
+    public MarkupString content {get; set;} = (MarkupString)"<h1>This is a test post</h1> <br> it's just some nonsense to fill the div for testing";
     public string username {get; set;} = "luna_the_creator";
     public string postCount {get; set;} = "∞";
-    public string pfpSource {get; set;} = "Resources/EmptyPFP.png";
-    public int postId {get;set;} = 1;
+    public int replyCount {get; set;} = 0;
+    public int postId {get; set;} = 420;
+    public int creatorId {get; set;}= 0;
+    public string pfpLink {get;set;}
+    private string pfpSource {get; set;} = "Resources/EmptyPFP.png";
+    [Parameter] public string? Class{get;set;} = "d-block";
+    
+    public void ChangeClass(string c)
+    {
+        Class = c;
+        StateHasChanged();
+    }
+
+    private string EditClass = "d-none";
+
     void ContentsClick()=> _navigationManager.NavigateTo($"/?postId={postId}",true);
+
     [CascadingParameter] public IModalService Modal {get; set;}
     async Task ReportClick()
     {
+        
         string reason = string.Empty;
         var form = Modal.Show<ReportModal>("",new ModalOptions(){Class="custom-modal"});
         var res = await form.Result;
@@ -21,8 +38,19 @@
             return;
         _apiLogic.RepPost(postId,reason);
     }
+    public void LoadPost(PostsGetDto dto)
+    {
+        date = dto.Date.ToString();
+        content = (MarkupString)dto.Contents;
+        username = dto.CreatorUsername;
+        pfpLink = dto.CreatorPFP;
+        creatorId = dto.CreatorId;
+        postId = dto.Id;
+        replyCount = dto.ReplyCount;
+    }
+
 }
-<div class="mb-2">
+<div class="@Class">
     <div class="d-flex align-items-stretch"style="outline: 5px solid #171A1D; background-color:#222229">
         <div class="p-2 text-wrap" style="width:60rem;">
              <div @onclick="ContentsClick" style="cursor:pointer;">@content</div>
@@ -46,7 +74,7 @@
         </div>    
     </div>
     @* edit field *@
-    <div class="mt-2">
+    <div class="mt-2 @EditClass">
         <textarea class="bg" rows="10" style="color: #d8cfc7;resize: none; background-color: #222229FF !important"></textarea>
     </div>
 </div>

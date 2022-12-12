@@ -1,6 +1,8 @@
 ﻿@page "/"
 @inject NavigationManager _navigationManager;
+@inject IApiLogic _apiLogic;
 @using Microsoft.AspNetCore.WebUtilities;
+@using Api.Dtos;
 
 @code{
     [CascadingParameter] public IModalService Modal {get; set;}
@@ -17,6 +19,14 @@
             pageId = 1;
         //Got the post id
     }
+    List<PostsGetDto> data;
+    TopPost topPost;
+    Post[] posts = new Post[11];
+    void LoadData()
+    {
+        var Post = _apiLogic.GetPost(postId);
+
+    }
 
 }
 <PageTitle>Index</PageTitle>
@@ -26,15 +36,7 @@
 <p role="status">@postId</p>
 <p role="status">@pageId</p>
 
-<TopPost/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
-<Post/>
+<TopPost @ref="topPost"/>
+@for (int i = 0; i < posts.Length - 1; i++){
+    <Post @ref="posts[i]"/>
+}

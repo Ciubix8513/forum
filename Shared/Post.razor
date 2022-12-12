@@ -1,15 +1,25 @@
 @inject NavigationManager _navigationManager;
 @inject IApiLogic _apiLogic;
+@using Api.Dtos;
 @code{
     public string date {get; set;} = "6.9.6969";
     public MarkupString content {get; set;} = (MarkupString)"<h1>This is a test reply</h1> <br> it's just some nonsense to fill the div for testing";
     public string username {get; set;} = "luna_the_creator";
     public string postCount {get; set;} = "∞";
-    public string pfpSource {get; set;} = "Resources/EmptyPFP.png";
     public int replyCount {get; set;} = 0;
     public int postId {get; set;} = 420;
+    public int creatorId {get; set;}= 0;
+    public string pfpLink {get;set;}
+    private string pfpSource {get; set;} = "Resources/EmptyPFP.png";
+    public string Class {get; set;} = "d-block";
 
     void ContentsClick()=> _navigationManager.NavigateTo($"/?postId={postId}",true);
+
+    public void ChangeClass(string c)
+    {
+        Class = c;
+        StateHasChanged();
+    }
 
     [CascadingParameter] public IModalService Modal {get; set;}
     async Task ReportClick()
@@ -24,32 +34,39 @@
             return;
         _apiLogic.RepPost(postId,reason);
     }
-/*    public void LoadPost(PostsGetDto)
+    public void LoadPost(PostsGetDto dto)
     {
-
-    }*/
+        date = dto.Date.ToString();
+        content = (MarkupString)dto.Contents;
+        username = dto.CreatorUsername;
+        pfpLink = dto.CreatorPFP;
+        creatorId = dto.CreatorId;
+        postId = dto.Id;
+        replyCount = dto.ReplyCount;
+    }
 }
-
-<span class="d-flex align-items-stretch mx-3 broder border-danger" style="outline: 5px solid #171A1D; background-color:#222229" >
-    <div class="p-2  text-wrap" style="width:59rem;">
-       <div @onclick="ContentsClick" style="cursor:pointer">@content</div>
-       <div class="small mx-1 mt-4 d-flex">
-            <div>
-               @replyCount replies 
+<div class="@Class">
+    <span class="d-flex align-items-stretch mx-3 broder border-danger" style="outline: 5px solid #171A1D; background-color:#222229" >
+        <div class="p-2  text-wrap" style="width:59rem;">
+        <div @onclick="ContentsClick" style="cursor:pointer">@content</div>
+        <div class="small mx-1 mt-4 d-flex">
+                <div>
+                @replyCount replies 
+                </div>
+                <div class ="mx-3">
+                <AuthorizeView>
+                    <div @onclick="ReportClick" style="cursor:pointer">report</div>
+                </AuthorizeView>
+                </div>
             </div>
-            <div class ="mx-3">
-            <AuthorizeView>
-                <div @onclick="ReportClick" style="cursor:pointer">report</div>
-            </AuthorizeView>
-            </div>
-        </div>
-    </div> 
-    <img src="@pfpSource" width="64" height="64"/>
-    <div class="p-2">
-        @username 
-        <br>
-        @postCount posts
-        <div class="mx-5 small bottom-100">@date</div>
-    </div>    
-</span>
+        </div> 
+        <img src="@pfpSource" width="64" height="64"/>
+        <div class="p-2">
+            @username 
+            <br>
+            @postCount posts
+            <div class="mx-5 small bottom-100">@date</div>
+        </div>    
+    </span>
+</div>
 
