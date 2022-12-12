@@ -2,15 +2,16 @@
 @inject IApiLogic _apiLogic;
 @using Api.Dtos;
 @using System.ComponentModel.DataAnnotations;
+@using System.Globalization;
 
 @code{
     public string date {get; set;} = "6.9.6969";
     public MarkupString content {get; set;} = (MarkupString)"<h1>This is a test post</h1> <br> it's just some nonsense to fill the div for testing";
     public string username {get; set;} = "luna_the_creator";
     public string postCount {get; set;} = "∞";
-    public int replyCount {get; set;} = 0;
+    public int? replyCount {get; set;} = 0;
     public int postId {get; set;} = 420;
-    public int creatorId {get; set;}= 0;
+    public int? creatorId {get; set;}= 0;
     public string pfpLink {get;set;}
     private string pfpSource {get; set;} = "Resources/EmptyPFP.png";
     [Parameter] public string? Class{get;set;} = "d-block";
@@ -40,13 +41,14 @@
     }
     public void LoadPost(PostsGetDto dto)
     {
-        date = dto.Date.ToString();
+        date = dto.Date?.ToString("dd.MM.yyyy");
         content = (MarkupString)dto.Contents;
         username = dto.CreatorUsername;
         pfpLink = dto.CreatorPFP;
         creatorId = dto.CreatorId;
         postId = dto.Id;
         replyCount = dto.ReplyCount;
+        StateHasChanged();
     }
 
 }
