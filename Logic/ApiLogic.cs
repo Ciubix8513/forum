@@ -23,8 +23,7 @@ namespace Bwasm.Cookies.Logic
             var response = await client.GetAsync("/Post/GetPosts" + payload);
             if (!response.IsSuccessStatusCode)
                 return null;
-            var list = await JsonSerializer.DeserializeAsync<List<PostsGetDto>>(response.Content.ReadAsStream());
-            _logger.Log(LogLevel.Information,list.Count.ToString());
+            var list = await response.Content.ReadFromJsonAsync<List<PostsGetDto>>();
             return list;
 
         }

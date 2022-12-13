@@ -2329,11 +2329,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luna/Projects/forum/forum/forum.csproj",
+      "projectUniqueName": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
       "projectName": "forum",
-      "projectPath": "/home/luna/Projects/forum/forum/forum.csproj",
+      "projectPath": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
       "packagesPath": "/home/luna/.nuget/packages/",
-      "outputPath": "/home/luna/Projects/forum/forum/obj/",
+      "outputPath": "/home/luna/Projects/School_Stuff/forum/forum/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luna/.nuget/NuGet/NuGet.Config"

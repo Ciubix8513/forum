@@ -1,10 +1,12 @@
 @inject NavigationManager _navigationManager;
 @inject IApiLogic _apiLogic;
 @using Api.Dtos;
+@inject ILogger<Post> _logger;
+
 @code{
-    public string date {get; set;} = "6.9.6969";
-    public MarkupString content {get; set;} = (MarkupString)"<h1>This is a test reply</h1> <br> it's just some nonsense to fill the div for testing";
-    public string username {get; set;} = "luna_the_creator";
+    public string date {get; set;}
+    public MarkupString content {get; set;}
+    public string username {get; set;}
     public string postCount {get; set;} = "∞";
     public int? replyCount {get; set;} = 0;
     public int postId {get; set;} = 420;
@@ -34,7 +36,7 @@
             return;
         await _apiLogic.RepPost(postId,reason);
     }
-    public PostsGetDto data {get; set;}
+    [Parameter]public PostsGetDto data {get; set;}
     public void LoadPost(PostsGetDto dto)
     {
         data = dto;
@@ -46,10 +48,18 @@
         postId = dto.Id;
         replyCount = dto.ReplyCount;
         Class = "d-block";
+        StateHasChanged();
     }
-    protected override void OnInitialized()
+    /*protected override void OnInitialized()
     {
         if(data != null)
+        LoadPost(data);
+        StateHasChanged();
+    }*/
+    protected override void OnAfterRender(bool first)
+    {
+        if(!first) return;
+        _logger.Log(LogLevel.Information, $"Loading data,id = {data.Id}");
         LoadPost(data);
         StateHasChanged();
     }

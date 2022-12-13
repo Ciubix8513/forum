@@ -3,10 +3,11 @@
 @inject IApiLogic _apiLogic;
 @using Microsoft.AspNetCore.WebUtilities;
 @using Api.Dtos;
+@inject ILogger<Index> _logger;
 
 @code{
     public int postId  = 1;
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         var uri = _navigationManager.ToAbsoluteUri(_navigationManager.Uri);
         var qParam = QueryHelpers.ParseQuery(uri.Query).TryGetValue("postId", out var val);
@@ -19,8 +20,13 @@
     TopPost topPost;
     List<Post> posts = new();
     async Task LoadData()
-    {
+    {    
         data = await _apiLogic.GetPosts(postId);
+        _logger.Log(LogLevel.Information,$"Got {data.Count.ToString()} Posts from the API");
+        foreach(var d in data)
+        {
+            _logger.Log(LogLevel.Information, $"Got post with Id {d.Id}");
+        }
         var Post = await _apiLogic.GetPost(postId);
         topPost.LoadPost(Post);
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mgXQ4NrwxPZLmdp8Q1lrnBUHHTKUmi/5TsVuKIZ7VxppxkHHG0otYpVT7Ff+naprsuweMdkFqUVxy3D+xFd2Mw==",
+  "dgSpecHash": "8tIndrTbM63rKTk2tpakAe1J/CWebA5i4mNoWiQwBLR7mifmRvMTS8SzhHV2zvfDYsV3Eo9eDHt0KgT8y3Kttw==",
   "success": true,
-  "projectFilePath": "/home/luna/Projects/forum/forum/forum.csproj",
+  "projectFilePath": "/home/luna/Projects/School_Stuff/forum/forum/forum.csproj",
   "expectedPackageFiles": [
     "/home/luna/.nuget/packages/blazorcomponentutilities/1.7.1/blazorcomponentutilities.1.7.1.nupkg.sha512",
     "/home/luna/.nuget/packages/blazored.localstorage/4.3.0/blazored.localstorage.4.3.0.nupkg.sha512",
