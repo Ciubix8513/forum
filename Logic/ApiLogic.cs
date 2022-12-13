@@ -75,7 +75,7 @@ namespace Bwasm.Cookies.Logic
         public async Task RepPost(int id, string reason)
         {
             var client = _httpClientFactory.CreateClient("API");
-            await client.PostAsync($"Rep/RepPost?Id{id}&Reason={reason}", null);
+            await client.PostAsync($"Rep/RepPost?Id={id}&Reason={reason}", null);
         }
 
         public async Task<PostsGetDto> GetPost(int Id) => await (await _httpClientFactory.CreateClient("API")
