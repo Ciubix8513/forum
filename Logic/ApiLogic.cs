@@ -9,9 +9,11 @@ namespace Bwasm.Cookies.Logic
     public class ApiLogic : IApiLogic
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        public ApiLogic(IHttpClientFactory httpClientFactory)
+        private readonly ILogger<ApiLogic> _logger;
+        public ApiLogic(IHttpClientFactory httpClientFactory, ILogger<ApiLogic> logger)
         {
             _httpClientFactory = httpClientFactory;
+            _logger = logger;
         }
 
         public async Task<List<PostsGetDto>> GetPosts(int parent)
@@ -21,7 +23,10 @@ namespace Bwasm.Cookies.Logic
             var response = await client.GetAsync("/Post/GetPosts" + payload);
             if (!response.IsSuccessStatusCode)
                 return null;
-            return (List<PostsGetDto>)await response.Content.ReadFromJsonAsync(typeof(List<PostsGetDto>));
+            var list = await JsonSerializer.DeserializeAsync<List<PostsGetDto>>(response.Content.ReadAsStream());
+            _logger.Log(LogLevel.Information,list.Count.ToString());
+            return list;
+
         }
 
         //Make Login api call on route /Auth/login with content login
@@ -60,21 +65,31 @@ namespace Bwasm.Cookies.Logic
         }
 
         public async Task<string> AddForm(FormAddDto dto)
-        { 
+        {
             var client = _httpClientFactory.CreateClient("API");
             string payload = JsonSerializer.Serialize(dto);
-            var content =  new StringContent(payload,Encoding.UTF8,"application/json");
-            var response = await client.PostAsync("Reg/AddForm",content);
+            var content = new StringContent(payload, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("Reg/AddForm", content);
             return await response.Content.ReadAsStringAsync();
         }
 
         public async Task RepPost(int id, string reason)
         {
             var client = _httpClientFactory.CreateClient("API");
-            await client.PostAsync( $"Rep/RepPost?Id{id}&Reason={reason}",null);
+            await client.PostAsync($"Rep/RepPost?Id{id}&Reason={reason}", null);
         }
 
         public async Task<PostsGetDto> GetPost(int Id) => await (await _httpClientFactory.CreateClient("API")
             .GetAsync($"Post/GetPost?id={Id}")).Content.ReadFromJsonAsync<PostsGetDto>();
+
+        public async Task AddPost(string contents, int parentId)
+        {
+            var client = _httpClientFactory.CreateClient("API");
+            string payload = JsonSerializer.Serialize(new PostAddDto(contents, parentId));
+            await client.PostAsync("Post/AddPost", new StringContent(
+                payload,
+                Encoding.UTF8,
+                "application/json"));
+        }
     }
 }

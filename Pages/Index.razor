@@ -5,48 +5,29 @@
 @using Api.Dtos;
 
 @code{
-    [CascadingParameter] public IModalService Modal {get; set;}
     public int postId  = 1;
-    public int pageId = 0;
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
         var uri = _navigationManager.ToAbsoluteUri(_navigationManager.Uri);
         var qParam = QueryHelpers.ParseQuery(uri.Query).TryGetValue("postId", out var val);
         if(!int.TryParse(val,out postId))
             postId = 1;
-        qParam = QueryHelpers.ParseQuery(uri.Query).TryGetValue("page", out val);
-        if(!int.TryParse(val,out pageId))
-            pageId = 1;
-        //Got the post id
-        LoadData();
+        await LoadData();
+        base.OnInitialized();
     }
     List<PostsGetDto> data = new();
     TopPost topPost;
     List<Post> posts = new();
-    async void LoadData()
+    async Task LoadData()
     {
+        data = await _apiLogic.GetPosts(postId);
         var Post = await _apiLogic.GetPost(postId);
         topPost.LoadPost(Post);
-        data = new();
-        data = await _apiLogic.GetPosts(postId);
-        posts = new List<Post>();
-        foreach(var p in data)
-        {
-            Post post = new();
-            post.LoadPost(p);
-            posts.Add(post);
-        }
     }
+
 }
 <PageTitle>Index</PageTitle>
-@* <button @onclick="OnClick">Test</button> *@
-
-
-<p role="status">@postId</p>
-<p role="status">@pageId</p>
-
 <TopPost @ref="topPost"/>
-@foreach (Post p in posts)
-{
-    <Post Post=@p/>
+@foreach (var d in data){
+    <Post data=@d/>
 }

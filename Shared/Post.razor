@@ -11,7 +11,7 @@
     public int? creatorId {get; set;}= 0;
     public string pfpLink {get;set;}
     private string pfpSource {get; set;} = "Resources/EmptyPFP.png";
-    public string Class {get; set;} = "d-none";
+    public string Class {get; set;} = "d-block";
 
     void ContentsClick()=> _navigationManager.NavigateTo($"/?postId={postId}",true);
 
@@ -32,10 +32,12 @@
             reason = res.Data?.ToString() ?? string.Empty;
         if(reason == string.Empty)
             return;
-        _apiLogic.RepPost(postId,reason);
+        await _apiLogic.RepPost(postId,reason);
     }
+    public PostsGetDto data {get; set;}
     public void LoadPost(PostsGetDto dto)
     {
+        data = dto;
         date = dto.Date?.ToString("dd.MM.yyyy");
         content = (MarkupString)dto.Contents;
         username = dto.CreatorUsername;
@@ -43,6 +45,12 @@
         creatorId = dto.CreatorId;
         postId = dto.Id;
         replyCount = dto.ReplyCount;
+        Class = "d-block";
+    }
+    protected override void OnInitialized()
+    {
+        if(data != null)
+        LoadPost(data);
         StateHasChanged();
     }
 }

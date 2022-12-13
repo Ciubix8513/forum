@@ -50,22 +50,35 @@
         replyCount = dto.ReplyCount;
         StateHasChanged();
     }
-
+    void ReplyClickTop()=>EditClass = "d-block";
+    string message;
+    async void ReplyClick()
+    {
+        await _apiLogic.AddPost(message,postId);
+        CancelClick();
+        ContentsClick();
+        StateHasChanged();
+    }
+    void CancelClick()
+    {
+        EditClass = "d-none";
+        message = "";
+    }
 }
-<div class="@Class">
+<div class="@Class mb-2">
     <div class="d-flex align-items-stretch"style="outline: 5px solid #171A1D; background-color:#222229">
         <div class="p-2 text-wrap" style="width:60rem;">
              <div @onclick="ContentsClick" style="cursor:pointer;">@content</div>
-            <div class="small mx-1 mt-4 d-flex">
-                <div>
-                    reply 
+            <AuthorizeView>
+                <div class="small mx-1 mt-4 d-flex">
+                    <div @onclick="ReplyClickTop" style="cursor:pointer">
+                        reply 
+                    </div>
+                    <div class ="mx-3">
+                            <div @onclick="ReportClick" style="cursor:pointer">report</div>
+                    </div>
                 </div>
-                <div class ="mx-3">
-                    <AuthorizeView>
-                        <div @onclick="ReportClick" style="cursor:pointer">report</div>
-                    </AuthorizeView>
-                </div>
-            </div>
+            </AuthorizeView>
         </div> 
         <img src="@pfpSource" width="64" height="64"/>
         <div class="p-2">
@@ -76,7 +89,11 @@
         </div>    
     </div>
     @* edit field *@
-    <div class="mt-2 @EditClass">
-        <textarea class="bg" rows="10" style="color: #d8cfc7;resize: none; background-color: #222229FF !important"></textarea>
-    </div>
+    <AuthorizeView>
+        <div class="mt-2 @EditClass">
+            <textarea @bind="message" class="bg" rows="5" cols="120" style="color: #d8cfc7;resize: none; background-color: #222229FF !important "></textarea>
+            <button @onclick="ReplyClick" class="btn btn-dark btn-outline-light mx-2">Reply</button>
+            <button @onclick="CancelClick" class="btn btn-dark btn-outline-light mx-2">Cancel</button>
+        </div>
+    </AuthorizeView>
 </div>
