@@ -15,5 +15,8 @@ namespace Bwasm.Cookies.Logic
         Task AddPost(string contents, int parentId);
         Task DeletePost(int id);        
         Task EditPost(int id,string content);        
+        Task<List<PostsGetDto>> GetPostsUser(int Id);
+        Task EditBio(int id,string content);
+        Task<UserDataDto> GetUser(int id);
     }
 }

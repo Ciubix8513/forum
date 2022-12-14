@@ -50,6 +50,7 @@
         StateHasChanged();
     }
     protected override void OnInitialized()=>LoadPost(data);
+    void userclick() => _navigationManager.NavigateTo($"/User?userId={creatorId}",true);
 }
 <div class="@Class">
     <span class="d-flex align-items-stretch mx-3 broder border-danger" style="outline: 5px solid #171A1D; background-color:#222229" >
@@ -67,7 +68,7 @@
             </div>
         </div> 
         <img src="@pfpSource" width="64" height="64"/>
-        <div class="p-2">
+        <div class="p-2" @onclick="userclick" style="cursor:pointer">
             @username 
             <br>
             @postCount posts

@@ -1,0 +1,31 @@
+@page "/User"
+@inject NavigationManager _navigationManager;
+@inject IApiLogic _apiLogic;
+@using Microsoft.AspNetCore.WebUtilities;
+@using Api.Dtos;
+@inject ILogger<Index> _logger;
+
+@code{
+    int UserId = 1;
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = _navigationManager.ToAbsoluteUri(_navigationManager.Uri);
+        var qParam = QueryHelpers.ParseQuery(uri.Query).TryGetValue("userId", out var val);
+        if(!int.TryParse(val,out UserId))
+            UserId = 1;
+        await LoadData();
+        base.OnInitialized();
+    }
+    List<PostsGetDto> PostData = new();
+    UserProfile user;
+    async Task LoadData()
+    {
+        var d = await _apiLogic.GetUser(UserId);
+        user.LoadData(d);
+        PostData = await _apiLogic.GetPostsUser(UserId);
+    }
+}
+<UserProfile @ref="user"/>
+@foreach(var d in PostData){
+    <Post data=@d/>
+}

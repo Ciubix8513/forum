@@ -91,6 +91,7 @@
         EditClass = "d-block";
         textButtonContent = "Edit";
     }
+    void userclick() => _navigationManager.NavigateTo($"/User?userId={creatorId}");
 }
 <div class="@Class mb-2">
     <div class="d-flex align-items-stretch"style="outline: 5px solid #171A1D; background-color:#222229">
@@ -116,7 +117,7 @@
             </AuthorizeView>
         </div> 
         <img src="@pfpSource" width="64" height="64"/>
-        <div class="p-2">
+        <div class="p-2" style="cursor:pointer" @onclick="userclick">
             @username 
             <br>
             @postCount posts

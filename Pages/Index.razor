@@ -18,7 +18,6 @@
     }
     List<PostsGetDto> data = new();
     TopPost topPost;
-    List<Post> posts = new();
     async Task LoadData()
     {    
         data = await _apiLogic.GetPosts(postId);

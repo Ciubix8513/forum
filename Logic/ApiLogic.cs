@@ -114,5 +114,24 @@ namespace Bwasm.Cookies.Logic
                 "application/json"
             ));
         }
+
+        public async Task<List<PostsGetDto>> GetPostsUser(int Id)
+        {
+            var client =_httpClientFactory.CreateClient("API");
+           return await client.GetFromJsonAsync<List<PostsGetDto>>($"Post/GetPostsUser?Id={Id}");
+        }
+
+        public async Task EditBio(int id, string content)
+        {
+            var client = _httpClientFactory.CreateClient("API");
+            await client.PostAsync($"User/SetBio?Id={id}&Contents={content}",null);
+        }
+
+        public async Task<UserDataDto> GetUser(int id)
+        {
+            var client = _httpClientFactory.CreateClient("API");
+            var response = await client.GetAsync($"User/GetUser?id={id}");
+            return await response.Content.ReadFromJsonAsync<UserDataDto>();
+        }
     }
 }
