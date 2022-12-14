@@ -29,7 +29,6 @@
     [CascadingParameter] public IModalService Modal {get; set;}
     async Task ReportClick()
     {
-        
         string reason = string.Empty;
         var form = Modal.Show<ReportModal>("",new ModalOptions(){Class="custom-modal"});
         var res = await form.Result;
@@ -37,7 +36,7 @@
             reason = res.Data?.ToString() ?? string.Empty;
         if(reason == string.Empty)
             return;
-        _apiLogic.RepPost(postId,reason);
+        await _apiLogic.RepPost(postId,reason);
     }
     public void LoadPost(PostsGetDto dto)
     {
