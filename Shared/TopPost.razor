@@ -46,10 +46,11 @@
         creatorId = dto.CreatorId;
         postId = dto.Id;
         replyCount = dto.ReplyCount;
+        postCount = dto.CreatorPostCount.ToString();
         StateHasChanged();
     }
     void ReplyClickTop()=>EditClass = "d-block";
-    string message;
+    string message = "";
     async void ReplyClick()
     {
         await _apiLogic.AddPost(message,postId);

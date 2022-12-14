@@ -1,7 +1,6 @@
 @inject NavigationManager _navigationManager;
 @inject IApiLogic _apiLogic;
 @using Api.Dtos;
-@inject ILogger<Post> _logger;
 
 @code{
     public string date {get; set;}
@@ -26,7 +25,6 @@
     [CascadingParameter] public IModalService Modal {get; set;}
     async Task ReportClick()
     {
-        
         string reason = string.Empty;
         var form = Modal.Show<ReportModal>("",new ModalOptions(){Class="custom-modal"});
         var res = await form.Result;
@@ -47,22 +45,11 @@
         creatorId = dto.CreatorId;
         postId = dto.Id;
         replyCount = dto.ReplyCount;
+        postCount = dto.CreatorPostCount.ToString();
         Class = "d-block";
         StateHasChanged();
     }
-    /*protected override void OnInitialized()
-    {
-        if(data != null)
-        LoadPost(data);
-        StateHasChanged();
-    }*/
-    protected override void OnAfterRender(bool first)
-    {
-        if(!first) return;
-        _logger.Log(LogLevel.Information, $"Loading data,id = {data.Id}");
-        LoadPost(data);
-        StateHasChanged();
-    }
+    protected override void OnInitialized()=>LoadPost(data);
 }
 <div class="@Class">
     <span class="d-flex align-items-stretch mx-3 broder border-danger" style="outline: 5px solid #171A1D; background-color:#222229" >

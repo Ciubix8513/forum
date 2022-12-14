@@ -1,28 +1,16 @@
-﻿<nav class="navbar navbar-expand navbar-toggleable navbar-dark bg-dark border-bottom box-shadow">
+﻿@inject NavigationManager _navigationManager;
+<nav class="navbar navbar-expand navbar-toggleable navbar-dark bg-dark border-bottom box-shadow">
 <div class="container">
-    <a class="navbar-brand" href="">Forum</a>
-    @* <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button> *@
-
+    <a class="navbar-brand" href="/?postId=1" @onclick="click">Forum</a>
 <div class="@NavMenuCssClass " @onclick="ToggleNavMenu">
     <nav class="flex-flex-grow-1">
-        @* <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/?postId=1" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div> *@
         <LoginDisplay/>
-        @* <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Login" Match="NavLinkMatch.All">
-                <span class="oi" aria-hidden="true"></span> Login
-            </NavLink>
-        </div> *@
     </nav>
 </div>
 </div>
 </nav>
 @code {
+    void click()=> _navigationManager.NavigateTo("/",true);
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
