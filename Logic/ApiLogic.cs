@@ -90,5 +90,29 @@ namespace Bwasm.Cookies.Logic
                 Encoding.UTF8,
                 "application/json"));
         }
+
+        public async Task DeletePost(int id)
+        {
+            PostEditDto dto = new(id, null);
+            var client = _httpClientFactory.CreateClient("API");
+            string payload = JsonSerializer.Serialize(dto);
+            await client.PostAsync("Post/EditPost",new StringContent(
+                payload,
+                Encoding.UTF8,
+                "application/json"
+            ));
+        }
+
+        public async Task EditPost(int id, string content)
+        {
+            PostEditDto dto = new(id, content);
+            var client = _httpClientFactory.CreateClient("API");
+            string payload = JsonSerializer.Serialize(dto);
+            await client.PostAsync("Post/EditPost",new StringContent(
+                payload,
+                Encoding.UTF8,
+                "application/json"
+            ));
+        }
     }
 }

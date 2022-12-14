@@ -6,14 +6,16 @@
     public string date {get; set;} 
     public MarkupString content {get; set;} 
     public string username {get; set;} 
-    public string postCount {get; set;} = "∞";
+    public string postCount {get; set;}
     public int? replyCount {get; set;} = 0;
     public int postId {get; set;} = 1;
     public int? creatorId {get; set;}= 0;
     public string pfpLink {get;set;}
     private string pfpSource {get; set;} = "Resources/EmptyPFP.png";
     [Parameter] public string? Class{get;set;} = "d-block";
-    
+    public int? ParentPostId {get; set;}
+    string textButtonContent = "Reply";
+
     public void ChangeClass(string c)
     {
         Class = c;
@@ -47,21 +49,47 @@
         postId = dto.Id;
         replyCount = dto.ReplyCount;
         postCount = dto.CreatorPostCount.ToString();
+        ParentPostId = dto.ParentPostId;
         StateHasChanged();
     }
-    void ReplyClickTop()=>EditClass = "d-block";
+    void ReplyClickTop()
+    {
+        CancelClick();
+        EditClass = "d-block";
+    }
     string message = "";
     async void ReplyClick()
     {
-        await _apiLogic.AddPost(message,postId);
+        if(!edit)
+            await _apiLogic.AddPost(message,postId);
+        else
+            await _apiLogic.EditPost(postId,message);
         CancelClick();
         ContentsClick();
         StateHasChanged();
     }
+
     void CancelClick()
     {
         EditClass = "d-none";
         message = "";
+        edit = false;
+        textButtonContent = "Reply";
+    }
+
+    async Task DeleteClick()
+    {
+       await _apiLogic.DeletePost(postId);
+       _navigationManager.NavigateTo($"/?postId={ParentPostId}",true); 
+    }
+    bool edit = false;
+    void EditClick()
+    {
+        CancelClick();
+        edit = true;
+        message = content.ToString();
+        EditClass = "d-block";
+        textButtonContent = "Edit";
     }
 }
 <div class="@Class mb-2">
@@ -76,6 +104,14 @@
                     <div class ="mx-3">
                             <div @onclick="ReportClick" style="cursor:pointer">report</div>
                     </div>
+                    @if(Convert.ToInt32(context.User.Identity.GetClaimByName(CustomClaimsTypes.UserId)) == creatorId ||
+                     Convert.ToBoolean(context.User.Identity.GetClaimByName(CustomClaimsTypes.Privilege))){
+                    <div @onclick="EditClick" style="cursor:pointer">
+                        edit
+                    </div>
+                    <div @onclick="DeleteClick" class="mx-3" style="cursor:pointer">
+                        delete
+                    </div>}
                 </div>
             </AuthorizeView>
         </div> 
@@ -91,7 +127,7 @@
     <AuthorizeView>
         <div class="mt-2 @EditClass">
             <textarea @bind="message" class="bg" rows="5" cols="120" style="color: #d8cfc7;resize: none; background-color: #222229FF !important "></textarea>
-            <button @onclick="ReplyClick" class="btn btn-dark btn-outline-light mx-2">Reply</button>
+            <button @onclick="ReplyClick" class="btn btn-dark btn-outline-light mx-2">@textButtonContent</button>
             <button @onclick="CancelClick" class="btn btn-dark btn-outline-light mx-2">Cancel</button>
         </div>
     </AuthorizeView>

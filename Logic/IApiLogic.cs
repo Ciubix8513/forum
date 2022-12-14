@@ -12,8 +12,8 @@ namespace Bwasm.Cookies.Logic
         Task<PostsGetDto> GetPost(int Id);
         Task<string> AddForm(FormAddDto dto); 
         Task RepPost(int id, string reason);
-
         Task AddPost(string contents, int parentId);
-        
+        Task DeletePost(int id);        
+        Task EditPost(int id,string content);        
     }
 }
