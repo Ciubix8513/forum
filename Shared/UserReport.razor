@@ -1,0 +1,33 @@
+@using Api.Dtos;
+@inject NavigationManager _navigationManager;
+@inject IApiLogic _apiLogic;
+
+@code{
+    [Parameter] public RepDto data {get; set;}
+    int Id;
+    int PId;
+    string Reason;
+
+    protected override void OnInitialized()
+    {
+        if(data == null)return;
+        PId = data.Id;
+        Id = data.RId;
+        Reason = data.Reason;
+    }
+    void titleClick() => _navigationManager.NavigateTo($"/User?UserId={PId}",true);
+    async Task dismiss()
+    {
+        await _apiLogic.DeleteUserReport(Id);
+        _navigationManager.NavigateTo("/Mod",true);
+    }
+}
+
+<div>
+    <h2 @onclick="titleClick" style="cursor:pointer">Reported user @PId</h2>
+    <div>
+    Reason:<br/>
+        @Reason
+    </div>
+    <button @onclick="dismiss" class="btn btn-primary" >dismiss</button>
+</div>

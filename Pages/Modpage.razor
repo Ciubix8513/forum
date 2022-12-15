@@ -37,9 +37,14 @@
         UserReportsClass = "d-block";
     }
     List<FormGetDto> FormData = new();
+    List<RepDto> PostReportsData = new();
+    List<RepDto> UserReportsData = new();
+    
     protected override async Task OnInitializedAsync()
     {
         FormData = await _apiLogic.GetForms();
+        PostReportsData = await _apiLogic.GetPostReports();
+        UserReportsData = await _apiLogic.GetUserReports();
     }
 }
 
@@ -55,19 +60,15 @@
     </div>
     <h1 @onclick="PostReportsClick" style="cursor:pointer;">Post reports</h1><hr/>
     <div class="@PostReportsClass">
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
+        @foreach(var d in PostReportsData){
+            <PostReport data=@d/>
+        }
     </div>
     <h1 @onclick="UserReportsClick" style="cursor:pointer;">User reports</h1><hr/>
     <div class="@UserReportsClass">
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
+        @foreach(var d in UserReportsData){
+            <UserReport data=@d/>
+        }
     </div>
 }
 else{

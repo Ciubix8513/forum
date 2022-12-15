@@ -22,5 +22,9 @@ namespace Bwasm.Cookies.Logic
         Task<List<FormGetDto>> GetForms();
         Task DeleteForm(int id);
         Task AddUser(int id);
+        Task<List<RepDto>> GetPostReports();
+        Task<List<RepDto>> GetUserReports();
+        Task DeletePostReport(int id);
+        Task DeleteUserReport(int id);
     }
 }
