@@ -139,5 +139,14 @@ namespace Bwasm.Cookies.Logic
             var response = await client.GetAsync($"User/GetUser?id={id}");
             return await response.Content.ReadFromJsonAsync<UserDataDto>();
         }
+
+        public async Task<List<FormGetDto>> GetForms() => await (await _httpClientFactory.CreateClient("API")
+            .GetAsync("Reg/GetForms")).Content.ReadFromJsonAsync<List<FormGetDto>>();
+
+        public async Task DeleteForm(int id) => await _httpClientFactory.CreateClient("API")
+            .PostAsync($"Reg/RemoveForm?Id={id}", null);
+
+        public async Task AddUser(int id) => await _httpClientFactory.CreateClient("API")
+            .PostAsync($"Reg/AddUser?Id={id}",null);
     }
 }

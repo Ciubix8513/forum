@@ -1,4 +1,6 @@
 @page "/Mod"
+@using Api.Dtos;
+@inject IApiLogic _apiLogic;
 
 @code{
     bool FormsShown = true; string FormClass = "d-block";
@@ -34,6 +36,11 @@
         UserReportsShown=true;
         UserReportsClass = "d-block";
     }
+    List<FormGetDto> FormData = new();
+    protected override async Task OnInitializedAsync()
+    {
+        FormData = await _apiLogic.GetForms();
+    }
 }
 
 <AuthorizeView>
@@ -42,11 +49,9 @@
 @* Everything here is only visible to mods *@
     <h1 @onclick="FormsClick" style="cursor:pointer;">Forms</h1><hr/>
     <div class="@FormClass">
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
+        @foreach(var d in FormData){
+            <Form data=@d/>
+        }
     </div>
     <h1 @onclick="PostReportsClick" style="cursor:pointer;">Post reports</h1><hr/>
     <div class="@PostReportsClass">

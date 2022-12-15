@@ -1,0 +1,41 @@
+@using Api.Dtos;
+@inject IApiLogic _apiLogic;
+@inject NavigationManager _navigationManager;
+
+@code{
+    [Parameter]public FormGetDto data {get; set;}
+    private string username = "Ciubix";
+    private string reason = "This is a long explanation of why exactly I want to join";
+    private string date = "15.12.2022";
+    private int id = 0;
+
+    protected override void OnInitialized()
+    {
+        if(data == null)return;
+        username = data.Username;
+        reason = data.Reason;
+        date = data.Date?.ToString("dd.MM.yyyy");
+        id = data.Id;
+        StateHasChanged();
+    }
+    async Task AcceptClick()
+    {
+        await _apiLogic.AddUser(id);
+        await DenyClick();
+    }
+    async Task DenyClick()
+    {
+        await _apiLogic.DeleteForm(id);
+        _navigationManager.NavigateTo("/Mod",true);
+    }
+}
+<div>
+    <h2>@username</h2>
+    <div>
+        @reason
+    </div>
+    <div class="d-flex">
+        <button @onclick="AcceptClick" class="btn btn-primary btn-outline-primary">Accept</button>
+        <button @onclick="DenyClick" class="btn btn-secondary mx-2">Deny</button>
+    </div>
+</div>
