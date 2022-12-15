@@ -1,0 +1,75 @@
+@page "/Mod"
+
+@code{
+    bool FormsShown = true; string FormClass = "d-block";
+    bool PostReportsShown = true; string PostReportsClass = "d-block";
+    bool UserReportsShown = true; string UserReportsClass = "d-block";
+    void FormsClick(){
+        if(FormsShown)
+        {
+            FormsShown=false;
+            FormClass = "d-none";
+            return;
+        }
+        FormsShown=true;
+        FormClass = "d-block";
+    }
+    void PostReportsClick(){
+        if(PostReportsShown)
+        {
+            PostReportsShown=false;
+            PostReportsClass = "d-none";
+            return;
+        }
+        PostReportsShown=true;
+        PostReportsClass = "d-block";
+    }
+    void UserReportsClick(){
+        if(UserReportsShown)
+        {
+            UserReportsShown=false;
+            UserReportsClass = "d-none";
+            return;
+        }
+        UserReportsShown=true;
+        UserReportsClass = "d-block";
+    }
+}
+
+<AuthorizeView>
+<Authorized>
+@if(Convert.ToBoolean(@context.User.Identity.GetClaimByName(CustomClaimsTypes.Privilege))){
+@* Everything here is only visible to mods *@
+    <h1 @onclick="FormsClick" style="cursor:pointer;">Forms</h1><hr/>
+    <div class="@FormClass">
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+    </div>
+    <h1 @onclick="PostReportsClick" style="cursor:pointer;">Post reports</h1><hr/>
+    <div class="@PostReportsClass">
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+    </div>
+    <h1 @onclick="UserReportsClick" style="cursor:pointer;">User reports</h1><hr/>
+    <div class="@UserReportsClass">
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+    </div>
+}
+else{
+    <p>You're not a mod, go away</p>
+}
+</Authorized>
+<NotAuthorized>
+    <p>You're not even logged in, go away</p>
+</NotAuthorized>
+</AuthorizeView>

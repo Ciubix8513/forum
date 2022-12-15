@@ -15,13 +15,19 @@
         }
     }
     private void login(){_navigationManager.NavigateTo("/login",false);}
-    
+
 }
 <AuthorizeView>
     <Authorized>
         <container class="container-fluid">
-            <div>
-                <a href="">@context.User.Identity.GetClaimByName(CustomClaimsTypes.Username)</a>
+            <div class="d-flex">
+                @if(Convert.ToBoolean(@context.User.Identity.GetClaimByName(CustomClaimsTypes.Privilege))){
+                <a class="mx-2" href="/Mod">
+                    Moderation
+                </a>}
+                <a class="mx-2" href="/User?UserId=@context.User.Identity.GetClaimByName(CustomClaimsTypes.UserId)">
+                @context.User.Identity.GetClaimByName(CustomClaimsTypes.Username)
+                </a>
                 <button type="button" @onclick="Logout" class = "nav-link btn btn-light">Log out</button>
             </div>
         </container>
