@@ -3,7 +3,7 @@
 <div class="form ">
     <EditForm Model="_form" OnValidSubmit="SubmitForm">
         <DataAnnotationsValidator />
-        <div class="form-group">
+        <div class="form-group mb-4">
             <label for="message">Message</label>
             <InputText @bind-Value="_form.Message" class="form-control" placeholder="Enter a message" />
             <ValidationMessage For="@(() => _form.Message)" />
